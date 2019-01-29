@@ -1,0 +1,93 @@
+html{
+  overflow: hidden;
+  padding: 0;
+  height: 0;
+  width: 100%;
+  height: 100%;
+}
+
+body{
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+  overflow: hidden;
+  position: fixed;
+}
+
+header{
+  padding: 10px;
+  margin: 0;
+}
+
+.filter img{
+  float: left;
+  width: 40px;
+  height: 40px;
+}
+
+.info img{
+  float: right;
+  width: 40px;
+  height: 40px;
+}
+
+/*Portrait View*/
+@media (max-width: 800px){
+  .carousel{
+    height: 560px;
+    width: 800px;
+    position: absolute;
+    top: 250px;
+    left: 400px;
+    transform-style: preserve-3d;
+    overflow: hidden;
+  }
+
+  .item {
+    display: block;
+    position: fixed;
+    background: #eee;
+    width: 400px;
+    height: 560px;
+    opacity: 1;
+    border-radius: 10px;
+    transition: transform 1s, opacity 1s, scale 0.5s;
+    box-shadow: 0 20px 40px #aaa;
+  }
+
+  .item img{
+    width: 100%;
+    height: 100%;
+  }
+
+  .item:hover{
+    cursor: pointer;
+  }
+
+  .next, .prev {
+    color: #FF3030;
+    position: absolute;
+    top: 900px;
+    padding: 1em 2em;
+    cursor: pointer;
+    background: #EEE;
+    border-radius: 5px;
+    border-top: 1px solid #FFF;
+    box-shadow: 0 5px 0 #CCC;
+    transition: box-shadow 0.1s, top 0.1s;
+  }
+  .next:hover, .prev:hover { color: #000; }
+  .next:active, .prev:active {
+    top: 904px;
+    box-shadow: 0 1px 0 #999;
+  }
+  .next { right: 0; }
+  .prev { left: 0; }
+
+}
+
+/*Landscape View*/
+@media (min-width: 801px){
+
+}
