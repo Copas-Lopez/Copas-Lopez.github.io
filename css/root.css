@@ -22,6 +22,17 @@ html body{
   transform: translate(-50%, -50%);
 }
 
+.item-box-master{
+  width: auto;
+  height: 500px;
+  position: absolute;
+
+}
+
+.item-box{
+  display: inline-flex;
+}
+
 .item{
   display: inline-block;
   align-items: center;
@@ -33,10 +44,10 @@ html body{
   color: #fff;
   font-size: 80px;
   margin: 20px 0px 20px 0px;
-  transform: scale(0.98);
+  transform: scale(0.96);
 }
 
-.item:active{
+.item.active{
   transform: scale(1);
 }
 
