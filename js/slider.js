@@ -13,7 +13,6 @@ function setActive(item){
 }
 
 itemContainer.addEventListener('touchstart', (e) => {
-  alert('test');
   isDown = true;
   startX = e.pageX - itemContainer.offsetLeft;
 });
