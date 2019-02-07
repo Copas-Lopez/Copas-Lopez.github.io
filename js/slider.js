@@ -33,7 +33,7 @@ itemContainer.addEventListener('touchend', () => {
 //  //const walk = (x - startX) * 3; //scroll-fast
 //  //itemContainer.scrollLeft = scrollLeft - walk;
 //});
-itemContainer.addEventListener('touchmove', (e) => {
+itemContainer.addEventListener('mousemove', (e) => {
   console.log('test');
   if(!isDown) return;
   e.preventDefault();
