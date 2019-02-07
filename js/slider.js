@@ -33,11 +33,19 @@ itemContainer.addEventListener('mousemove', (e) => {
   //itemContainer.scrollLeft = scrollLeft - walk;
 });
 
+function slider_start(){
+  var shift = itemContainer.firstElementChild.offsetWidth;
+  itemContainer.style.transform = "translateX(-"+ shift +"px)";
+}
+
 function move(x){
-  if(x < getTranslateX()){
-    x = getTranslateX() + (x*(0.025));
-  }else{
-    x = getTranslateX() + (x*(0.025));
+  x = getTranslateX() + (x*(0.025));
+  if(x>(-3000) && x<(-2250)){
+    shiftRight();
+    return;
+  }else if(x>(-500) && x<(0)){
+    shiftLeft();
+    return;
   }
   itemContainer.style.transform = "translateX("+ x +"px)";
 }
@@ -46,4 +54,28 @@ function getTranslateX() {
   var style = window.getComputedStyle(itemContainer);
   var matrix = new WebKitCSSMatrix(style.webkitTransform);
   return matrix.m41;
+}
+
+function shiftRight(){
+  var toRemove = itemContainer.firstElementChild;
+  var toDupe = itemContainer.firstElementChild.nextElementSibling;
+  var cln = toDupe.cloneNode(true);
+  itemContainer.appendChild(cln);
+  itemContainer.removeChild(toRemove);
+  var shift = itemContainer.lastElementChild.offsetWidth;
+  shift = getTranslateX() + shift;
+  itemContainer.style.transform = "translateX("+ shift +"px)";
+  console.log(shift);
+}
+
+function shiftLeft(){
+  var toRemove = itemContainer.lastElementChild;
+  var toDupe = itemContainer.firstElementChild.nextElementSibling;
+  var cln = toDupe.cloneNode(true);
+  itemContainer.insertBefore(cln, itemContainer.firstElementChild);
+  itemContainer.removeChild(toRemove);
+  console.log(getTranslateX());
+  var shift = itemContainer.lastElementChild.offsetWidth;
+  shift = getTranslateX() - shift;
+  itemContainer.style.transform = "translateX("+ shift +"px)";
 }
