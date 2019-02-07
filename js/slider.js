@@ -13,6 +13,7 @@ function setActive(item){
 }
 
 itemContainer.addEventListener('touchstart', (e) => {
+  console.log('test');
   isDown = true;
   startX = e.pageX - itemContainer.offsetLeft;
 });
@@ -33,6 +34,7 @@ itemContainer.addEventListener('touchend', () => {
 //  //itemContainer.scrollLeft = scrollLeft - walk;
 //});
 itemContainer.addEventListener('touchmove', (e) => {
+  console.log('test');
   if(!isDown) return;
   e.preventDefault();
   const x = e.pageX - itemContainer.offsetLeft;
