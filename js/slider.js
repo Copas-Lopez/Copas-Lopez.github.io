@@ -32,6 +32,15 @@ itemContainer.addEventListener('mousemove', (e) => {
   //const walk = (x - startX) * 3; //scroll-fast
   //itemContainer.scrollLeft = scrollLeft - walk;
 });
+itemContainer.addEventListener('touchmove', (e) => {
+  if(!isDown) return;
+  e.preventDefault();
+  const x = e.pageX - itemContainer.offsetLeft;
+  const walk = (x - startX) * 3;
+  move(walk);
+  //const walk = (x - startX) * 3; //scroll-fast
+  //itemContainer.scrollLeft = scrollLeft - walk;
+});
 
 function slider_start(){
   var shift = itemContainer.firstElementChild.offsetWidth;
