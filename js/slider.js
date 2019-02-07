@@ -19,7 +19,7 @@ itemContainer.addEventListener('touchstart', (e) => {
 //itemContainer.addEventListener('mouseleave', () => {
 //  isDown = false;
 //});
-itemContainer.addEventListener('touchstop', () => {
+itemContainer.addEventListener('touchend', () => {
   isDown = false;
   //slider.classList.remove('active');
 });
