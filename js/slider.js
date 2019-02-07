@@ -12,26 +12,26 @@ function setActive(item){
   item.classList.add('active');
 }
 
-itemContainer.addEventListener('mousedown', (e) => {
+itemContainer.addEventListener('touchstart', (e) => {
   isDown = true;
   startX = e.pageX - itemContainer.offsetLeft;
 });
-itemContainer.addEventListener('mouseleave', () => {
-  isDown = false;
-});
-itemContainer.addEventListener('mouseup', () => {
+//itemContainer.addEventListener('mouseleave', () => {
+//  isDown = false;
+//});
+itemContainer.addEventListener('touchstop', () => {
   isDown = false;
   //slider.classList.remove('active');
 });
-itemContainer.addEventListener('mousemove', (e) => {
-  if(!isDown) return;
-  e.preventDefault();
-  const x = e.pageX - itemContainer.offsetLeft;
-  const walk = (x - startX) * 3;
-  move(walk);
-  //const walk = (x - startX) * 3; //scroll-fast
-  //itemContainer.scrollLeft = scrollLeft - walk;
-});
+//itemContainer.addEventListener('touchmove', (e) => {
+//  if(!isDown) return;
+//  e.preventDefault();
+//  const x = e.pageX - itemContainer.offsetLeft;
+//  const walk = (x - startX) * 3;
+//  move(walk);
+//  //const walk = (x - startX) * 3; //scroll-fast
+//  //itemContainer.scrollLeft = scrollLeft - walk;
+//});
 itemContainer.addEventListener('touchmove', (e) => {
   if(!isDown) return;
   e.preventDefault();
