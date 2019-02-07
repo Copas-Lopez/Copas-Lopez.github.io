@@ -13,14 +13,18 @@ function setActive(item){
 }
 
 itemContainer.addEventListener('touchstart', (e) => {
-  console.log('test');
+  alert('test');
   isDown = true;
   startX = e.pageX - itemContainer.offsetLeft;
 });
 //itemContainer.addEventListener('mouseleave', () => {
 //  isDown = false;
 //});
-itemContainer.addEventListener('touchend', () => {
+itemContainer.addEventListener('touchend', function() {
+  isDown = false;
+  //slider.classList.remove('active');
+});
+itemContainer.addEventListener('touchcancel', function() {
   isDown = false;
   //slider.classList.remove('active');
 });
@@ -33,9 +37,9 @@ itemContainer.addEventListener('touchend', () => {
 //  //const walk = (x - startX) * 3; //scroll-fast
 //  //itemContainer.scrollLeft = scrollLeft - walk;
 //});
-itemContainer.addEventListener('mousemove', (e) => {
-  console.log('test');
+itemContainer.addEventListener('touchmove mousemove', (e) => {
   if(!isDown) return;
+  console.log('test');
   e.preventDefault();
   const x = e.pageX - itemContainer.offsetLeft;
   const walk = (x - startX) * 3;
